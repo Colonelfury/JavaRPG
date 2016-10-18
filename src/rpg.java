@@ -1,5 +1,5 @@
 /**
- * Created by colonelfury on 10/12/2016. testing this crap out
+ * Created by colonelfury on 10/12/2016.
  */
 import com.sun.media.jfxmedia.events.PlayerStateEvent;
 
@@ -56,7 +56,7 @@ public class rpg
 
             else if (userInput.equalsIgnoreCase("flee") || userInput.equalsIgnoreCase("f"))
             {
-                if(player.playerState == "normal")
+                if(player.playerState.equals("normal"))
                 {
                     System.out.println("You are not in combat.");
                 }
