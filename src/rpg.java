@@ -44,16 +44,33 @@ public class rpg
             System.out.println("What would you like to do?");
             userInput = input.next();
 
-            if(userInput.equalsIgnoreCase("quit") || userInput.equalsIgnoreCase("q"))
+            if(userInput.equalsIgnoreCase("help") || userInput.equalsIgnoreCase("h"))
+            {
+                player.help();
+            }
+            
+            else if(userInput.equalsIgnoreCase("quit") || userInput.equalsIgnoreCase("q"))
             {
                 player.quit();
             }
 
-            else if(userInput.equalsIgnoreCase("help") || userInput.equalsIgnoreCase("h"))
+            else if(userInput.equalsIgnoreCase("status") || userInput.equalsIgnoreCase("s"))
             {
-                player.help();
+                player.printStats();
             }
-
+            
+            else if(userInput.equalsIgnoreCase("rest") || userInput.equalsIgnoreCase("r")
+            {
+                if(player.curHealth + 10 <= player.maxHealth)
+                {
+                    player.curHealth += 10;
+                }
+                else
+                {
+                    player.curHealth = player.maxHealth;
+                }
+            }
+            
             else if (userInput.equalsIgnoreCase("flee") || userInput.equalsIgnoreCase("f"))
             {
                 if(player.playerState.equals("normal"))
@@ -62,10 +79,12 @@ public class rpg
                 }
                 else
                 {
-
+                    System.outprintln("You flee from combat.");
+                    player.playerState = "normal";
                 }
             }
 
+            
             else
             {
                 System.out.println(player.playerName + " does not understand what you are saying.");
